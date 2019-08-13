@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 function SetButton (props) {
+
+    const [inputValue, setInputValue] = useState('')
+    console.log(inputValue)
     return (
         <div className='input-btn'>
-            <input type="text" placeholder='Enter Starting Time'></input>
-            <button className='set-btn'>Set Timer</button>
+            <input type="text" placeholder='Enter Starting Time' value={inputValue} onChange={(e) => {setInputValue(e.target.value)}}></input>
+            <button className='set-btn' onClick={() => {props.setTimer(inputValue)}} >Set Timer</button>
         </div>
 
     )
