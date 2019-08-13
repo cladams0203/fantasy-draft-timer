@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SetButton from "./SetButton";
 import './App.css';
+import StartButton from "./StartButton";
+
 
 
 
@@ -10,6 +12,15 @@ function App() {
   const setTime = (initialTime) => {
     setTimer(initialTime)
   }
+  const startTime = () => {
+    setInterval(() => {
+      let time = timer
+      time = time -1
+      setTimer(time)
+      console.log('timer firing')
+    }, 1000)
+  }
+
 
   return (
     <div className="App">
@@ -18,6 +29,7 @@ function App() {
         </header>
       <div className='display'>{timer}</div>
       <SetButton setTimer={setTime} />
+      <StartButton startTime={startTime}/>
     </div>
   );
 }
