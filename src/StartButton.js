@@ -5,7 +5,7 @@ function StartButton(props) {
     return <div>
         <button onClick={() => {
             props.startTime()
-        }}>Start Timer
+        }}>{props.btnText}
         </button>
     </div>
 }

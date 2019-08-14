@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SetButton from "./SetButton";
 import StartButton from "./StartButton";
 import './App.css';
@@ -10,7 +10,7 @@ import './App.css';
 function App() {
   const [timer, setTimer] = useState(0)
   const [active, setactive] = useState(false)
-
+  const btnText = useRef('Start Timer')
 
   const setTime = (initialTime) => {
     setTimer(initialTime)
@@ -19,15 +19,21 @@ function App() {
     setactive(!active)
   }
   let interval = null
+
+
   useEffect(() => {
-    // let interval = null
-    if(active) {
+    if(active && timer > 0) {
       interval = setTimeout(() => {
         setTimer(timer - 1)
       }, 1000)
-    }else if (!active || timer <= 0) {
-      console.log('cleared')
-      clearTimeout(interval)
+    }else {
+        clearTimeout(interval)
+        setactive(false)
+    }
+    if(active === true) {
+        btnText.current = 'Stop Timer'
+    }else{
+        btnText.current = 'Start Timer'
     }
   }, [timer, active])
 
@@ -39,7 +45,7 @@ function App() {
         </header>
       <div className='display'>{timer}</div>
       <SetButton setTimer={setTime} />
-      <StartButton startTime={startTime} active={active} />
+      <StartButton startTime={startTime} btnText={btnText.current} />
     </div>
   );
 }
