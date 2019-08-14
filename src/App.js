@@ -19,7 +19,17 @@ function App() {
     setactive(!active)
   }
   let interval = null
-
+  let displayStyle = {backgroundColor: 'black'}
+    if(active === true) {
+        btnText.current = 'Stop Timer'
+    }else{
+        btnText.current = 'Start Timer'
+    }
+    if(timer < 1) {
+        displayStyle.backgroundColor = 'red'
+    }else {
+        displayStyle.backgroundColor = 'black'
+    }
 
   useEffect(() => {
     if(active && timer > 0) {
@@ -30,11 +40,7 @@ function App() {
         clearTimeout(interval)
         setactive(false)
     }
-    if(active === true) {
-        btnText.current = 'Stop Timer'
-    }else{
-        btnText.current = 'Start Timer'
-    }
+
   }, [timer, active])
 
 
@@ -43,9 +49,9 @@ function App() {
       <header>
         <h1>The Fantasy Football Draft Clock</h1>
         </header>
-      <div className='display'>{timer}</div>
-      <SetButton setTimer={setTime} />
-      <StartButton startTime={startTime} btnText={btnText.current} />
+      <div className='display' style={displayStyle}>{timer}</div>
+        <StartButton startTime={startTime} btnText={btnText.current} />
+        <SetButton setTimer={setTime} />
     </div>
   );
 }

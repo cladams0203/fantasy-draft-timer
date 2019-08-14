@@ -10,7 +10,7 @@
   align-items: center;
   width: 80%;
   background-color: lightgreen;
-  margin-top: 50px;
+  /*margin-top: 50px;*/
 }
 header {
   display: flex;
@@ -29,7 +29,7 @@ h1 {
   text-align: center;
   font-size: 15rem;
   border-radius: 5rem;
-  box-shadow: 2rem 2rem 4rem black;
+  box-shadow: 10px 10px 10px black;
   margin-bottom: 50px;
 
 }
@@ -38,7 +38,33 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 50px;
 }
+.start-div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.start-btn {
+  background-color: yellow;
+  font-size: 3rem;
+  font-weight: bold;
+  box-shadow: 2px 2px 4px black;
+  border-radius: 1rem;
+  border: none;
+}
+.input-btn input{
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.input-btn button {
+  background-color: aqua;
+  font-size: 1.5rem;
+}
+
 
 
 
