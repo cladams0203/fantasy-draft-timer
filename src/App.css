@@ -8,7 +8,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
   background-color: lightgreen;
   /*margin-top: 50px;*/
 }
@@ -27,7 +27,7 @@ h1 {
   color: white;
   width: 90%;
   text-align: center;
-  font-size: 15rem;
+  font-size: 18rem;
   border-radius: 5rem;
   box-shadow: 10px 10px 10px black;
   margin-bottom: 50px;
